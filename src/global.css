@@ -1,4 +1,26 @@
-
 body {
-background-color: #f2f2f2;
+  background-color: #f2f2f2;
+}
+
+#create-user-alert-error {
+  display: none;
+
+  padding: 0;
+  padding-left: 0.2rem;
+
+  color: rgba(255, 0, 0, 0.783);
+  font-size: 0.8rem;
+}
+
+#create-user-alert-sucess {
+  display: none;
+
+  width: 17rem;
+  padding: 0.8rem;
+  text-align: center;
+
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+  left: auto;
 }
