@@ -11,9 +11,19 @@ class UserService {
   }
 
   getUser(bank, email) {
-    const user = bank.filter((user) => user.email === email);
+    const user = bank.filter((user) => {
+      return user.email === email;
+    });
 
     return user[0];
+  }
+
+  loginUser(email) {
+    const bank = this.getLocalStorage();
+    const user = this.getUser(bank, email);
+
+    if (!user) return 404;
+    else return user;
   }
 
   registerUser(user) {

@@ -15,8 +15,11 @@
       defer
     ></script>
 
-    <script src="../js/controllers/createUser.controller.js" defer></script>
+    
     <script src="../js/services/user.services.js" defer></script>
+    <script src="../js/controllers/createUser.controller.js" defer></script>
+    <script src="../js/controllers/loginUser.controller.js" defer></script>
+
 
 
     <title>Tarefas</title>
@@ -31,13 +34,24 @@
       >
         <form>
           <h2>Acesse sua conta:</h2>
-          <input class="form-control mb-3" type="email" placeholder="E-mail" />
+          <input id="login-email" class="form-control mb-3" type="email" placeholder="E-mail" />
           <input
+          id="login-password"
             class="form-control mb-3"
             type="password"
             placeholder="Senha"
           />
-          <button class="btn btn-primary" type="submit">Entrar</button>
+          <p id="login-user-alert-error" class="alert" role="alert">
+            Email ou senha incorretos &#128542
+          </p>
+          <button id="login-button" class="btn btn-primary" type="submit">Entrar</button>
+          <div
+          id="login-user-alert-sucess"
+          class="alert alert-success"
+          role="alert"
+        >
+          Usuário logado com sucesso 	&#128513
+        </div>
         </form>
         <form>
           <h2>Novo por aqui? Crie sua conta:</h2>
@@ -62,7 +76,7 @@
             type="password"
             placeholder="Senha"
           />
-          <button id="register-button" class="btn btn-primary" type="submit">
+          <button id="register-button" class="btn btn-primary" type="button">
             Criar conta
           </button>
         </form>
