@@ -1,5 +1,9 @@
 body {
   background-color: #f2f2f2;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 #create-user-alert-error,
@@ -38,3 +42,35 @@ body {
   right: 1rem;
   left: auto;
 }
+
+#table-tasks table th {
+  font-weight: 700;
+}
+
+.btn-warning {
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  padding: 0.5rem 1.3rem;
+}
+
+#create-task-button {
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  padding: 0.5rem 1.3rem;
+}
+
+#table-tasks table tbody tr .task-status {
+  font-weight: 600;
+  text-shadow: 2px 2px 2px #f2f2f2;
+}
+
+#table-tasks table tbody tr:nth-child(even) .task-status {
+  text-shadow: 2px 2px 2px white;
+}
+
+.table-tasks-row td {
+  width: 25%;
+}
+
