@@ -34,14 +34,21 @@
         class="col-12 col-lg-6 d-flex flex-column justify-content-center gap-5"
       >
         <form>
+         
           <h2>Acesse sua conta:</h2>
-          <input id="login-email" class="form-control mb-3" type="email" placeholder="E-mail" />
-          <input
-          id="login-password"
-            class="form-control mb-3"
-            type="password"
-            placeholder="Senha"
-          />
+          <div class="form-floating  mb-3">
+          <input id="login-email" class="form-control" type="email" placeholder="E-mail" />
+           <label for="login-email" class="form-label">E-mail</label
+          ></div>
+          <div class="form-floating  mb-3">
+            <input
+            id="login-password"
+              class="form-control mb-3"
+              type="password"
+              placeholder="Senha"
+            /><label for="login-password" class="form-label">Senha</label
+              >
+          </div>
           <p id="login-user-alert-error" class="alert" role="alert">
             Email ou senha incorretos &#128542
           </p>
@@ -56,27 +63,37 @@
         </form>
         <form>
           <h2>Novo por aqui? Crie sua conta:</h2>
-          <input
-            id="register-name"
-            class="form-control mb-3"
-            type="text"
-            placeholder="Nome"
-          />
-          <input
-            id="register-email"
-            class="form-control mb-3"
-            type="email"
-            placeholder="E-mail"
-          />
+          <div class="form-floating  mb-3">
+
+            <input
+              id="register-name"
+              class="form-control mb-3"
+              type="text"
+              placeholder="Nome"
+            /><label for="login-password" class="form-label">Nome</label
+              >
+          </div>
+          <div class="form-floating  mb-3">
+            <input
+              id="register-email"
+              class="form-control mb-3"
+              type="email"
+              placeholder="E-mail"
+            /><label for="login-password" class="form-label">E-mail</label
+              >
+          </div>
           <p id="create-user-alert-error" class="alert" role="alert">
             Email em uso, tente outro &#128542
           </p>
-          <input
-            id="register-password"
-            class="form-control mb-3"
-            type="password"
-            placeholder="Senha"
-          />
+          <div class="form-floating  mb-3">
+            <input
+              id="register-password"
+              class="form-control mb-3"
+              type="password"
+              placeholder="Senha"
+            /><label for="login-password" class="form-label">Senha</label
+              >
+          </div>
           <button id="register-button" class="btn btn-primary" type="button">
             Criar conta
           </button>
