@@ -56,7 +56,8 @@ loginUserButton.addEventListener("click", (event) => {
 
     new UserService().setUserLoginName(user.userName);
 
-    window.location.href = "dashboardToDo.html";
+    window.location.assign("./src/pages/dashboardToDo.html");
+
     setTimeout(() => {
       loginUserSucess.style.display = "none";
     }, 1500);

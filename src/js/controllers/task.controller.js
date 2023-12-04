@@ -54,6 +54,8 @@ function setIdTaskController(id) {
 
 function removeIdTaskController() {
   new TaskService().removeIdTask();
+  window.location.assign("../../index.html");
+
 }
 
 function getAllTasksController() {
@@ -68,7 +70,7 @@ function setUserNameController() {
   let name = new TaskService().getUserName();
 
   if (!name) {
-    window.location.href = "index.html";
+    window.location.assign("../../index.html");
   } else {
     compliance.textContent = `Boa tarde ${name}`;
   }
