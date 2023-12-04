@@ -1,5 +1,6 @@
 class TaskService {
   getLocalStorage() {
+    const id = this.getIdTask();
     let tasks = JSON.parse(localStorage.getItem("tasks"));
 
     if (!tasks || tasks.length < 1) {
@@ -7,7 +8,35 @@ class TaskService {
       tasks = [];
     }
 
-    return tasks;
+    return tasks[id] ?? [];
+  }
+
+  setLocalStorage(tasksUser) {
+    const id = this.getIdTask();
+    let tasks = JSON.parse(localStorage.getItem("tasks"));
+    tasks[id] = tasksUser;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  removeIdTask() {
+    localStorage.removeItem("idTask");
+    localStorage.removeItem("user");
+  }
+
+  setIdTask(id) {
+    localStorage.setItem("idTask", JSON.stringify(id));
+  }
+
+  getIdTask() {
+    const id = Number(JSON.parse(localStorage.getItem("idTask"))) ?? -1;
+
+    return id;
+  }
+
+  getUserName(){
+    const name = JSON.parse(localStorage.getItem("user"))
+
+    return name
   }
 
   registerTask(task) {
@@ -15,7 +44,7 @@ class TaskService {
 
     tasks.push(task);
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.setLocalStorage(tasks);
 
     return 200;
   }
@@ -33,7 +62,7 @@ class TaskService {
 
     tasks[id] = { ...task };
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.setLocalStorage(tasks);
   }
 
   editTaskStatus(id, status) {
@@ -41,11 +70,11 @@ class TaskService {
 
     tasks[id].status = status;
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.setLocalStorage(tasks);
   }
 
   editAllTasksStatus(tasks) {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.setLocalStorage(tasks);
   }
 
   deleteTask(id) {
@@ -53,6 +82,6 @@ class TaskService {
 
     tasks.splice(id, 1);
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.setLocalStorage(tasks);
   }
 }

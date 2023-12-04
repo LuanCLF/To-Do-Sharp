@@ -3,7 +3,7 @@ const tBody = document.querySelector("#table-tasks-tbody");
 
 function showTasks() {
   let tasks = getAllTasksController();
-
+  console.log("show", tasks);
   if (tasks.length === 0) {
     sectionTableTasks.classList.remove("d-flex");
     sectionTableTasks.classList.add("d-none");
@@ -31,6 +31,7 @@ function showTasks() {
 }
 
 window.onload = () => {
+  setUserNameController();
   attAllTasksStatus();
   showTasks();
 };

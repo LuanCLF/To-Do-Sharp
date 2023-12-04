@@ -10,29 +10,37 @@ class UserService {
     return bank;
   }
 
+  setUserLoginName(name) {
+    localStorage.setItem("user", JSON.stringify(name));
+  }
+
   getUser(bank, email) {
-    const user = bank.filter((user) => {
-      return user.email === email;
+    let index = "";
+    const user = bank.filter((user, i) => {
+      if (user.email === email) {
+        index = i;
+        return user;
+      }
     });
 
-    return user[0];
+    return { user: user[0], index };
   }
 
   loginUser(email) {
     const bank = this.getLocalStorage();
-    const user = this.getUser(bank, email);
+    const { user, index } = this.getUser(bank, email);
 
     if (!user) return 404;
-    else return user;
+    else return { user, index };
   }
 
-  registerUser(user) {
+  registerUser(createUser) {
     const bank = this.getLocalStorage();
-    const userExist = this.getUser(bank, user.email);
+    const { user } = this.getUser(bank, createUser.email);
 
-    if (userExist) return 409;
+    if (user) return 409;
     else {
-      bank.push(user);
+      bank.push(createUser);
 
       localStorage.setItem("bank", JSON.stringify(bank));
 

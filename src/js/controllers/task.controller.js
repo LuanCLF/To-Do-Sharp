@@ -1,16 +1,12 @@
-const createTaskTitle = document.querySelector("#create-task-title");
-const createTaskStartDate = document.querySelector("#create-task-start-date");
-const createTaskStartTime = document.querySelector("#create-task-start-time");
-const createTaskEndDate = document.querySelector("#create-task-end-date");
-const createTaskEndTime = document.querySelector("#create-task-end-time");
-const createTaskDescription = document.querySelector(
-  "#create-task-description"
-);
-
-const createTaskButton = document.querySelector("#create-task-button");
-
-createTaskButton.addEventListener("click", (event) => {
-  event.preventDefault();
+function createTaskController() {
+  const createTaskTitle = document.querySelector("#create-task-title");
+  const createTaskStartDate = document.querySelector("#create-task-start-date");
+  const createTaskStartTime = document.querySelector("#create-task-start-time");
+  const createTaskEndDate = document.querySelector("#create-task-end-date");
+  const createTaskEndTime = document.querySelector("#create-task-end-time");
+  const createTaskDescription = document.querySelector(
+    "#create-task-description"
+  );
 
   const task = {
     title: createTaskTitle.value,
@@ -22,10 +18,10 @@ createTaskButton.addEventListener("click", (event) => {
     description: createTaskDescription.value,
   };
 
-  const createTask = new TaskService().registerTask(task);
+  new TaskService().registerTask(task);
 
   showTasks();
-});
+}
 
 function editTaskController(input) {
   const editTaskTitle = document.querySelector("#edit-task-title");
@@ -52,10 +48,30 @@ function editTaskController(input) {
   showTasks();
 }
 
+function setIdTaskController(id) {
+  new TaskService().setIdTask(id);
+}
+
+function removeIdTaskController() {
+  new TaskService().removeIdTask();
+}
+
 function getAllTasksController() {
   let tasks = new TaskService().getLocalStorage();
 
   return tasks;
+}
+
+function setUserNameController() {
+  const compliance = document.querySelector("#compliance-header");
+
+  let name = new TaskService().getUserName();
+
+  if (!name) {
+    window.location.href = "index.html";
+  } else {
+    compliance.textContent = `Boa tarde ${name}`;
+  }
 }
 
 function getTaskController(id) {
